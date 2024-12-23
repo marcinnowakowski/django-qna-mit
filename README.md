@@ -22,8 +22,8 @@ A question and answer application built with Django, designed to facilitate comm
 2. **Create and activate a virtual environment:**
 
    ```bash
-   python -m venv env
-   source env/bin/activate  # On Windows: env\Scripts\activate
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
    ```
 
 3. **Install dependencies:**
