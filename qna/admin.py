@@ -1,4 +1,4 @@
-from models import Question
+from .models import Question
 from django.contrib import admin
 
 class QuestionAdmin(admin.ModelAdmin):

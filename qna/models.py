@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Question(models.Model):
     title = models.CharField(max_length=255)
@@ -12,11 +13,9 @@ class Question(models.Model):
     def __unicode__(self):
         return self.title
     
-    @models.permalink
     def get_absolute_url(self):
-        return ('question_detail', None, {
-            'slug': self.slug
-        })
+        return reverse('question_detail', kwargs={'slug': self.slug})
+
         
     def save(self, *a, **kw):
         if not self.slug:
