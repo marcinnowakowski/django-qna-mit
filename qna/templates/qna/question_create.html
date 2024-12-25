@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Create New Question{% endblock %}
+
+{% block content %}
+  <h1>Create a New Question</h1>
+  
+  <!-- Display the form -->
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+  
+  <!-- Link to go back to the question list -->
+  <a href="{% url 'question_list' %}" class="btn btn-secondary mt-3">Cancel</a>
+{% endblock %}

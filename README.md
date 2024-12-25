@@ -22,7 +22,7 @@ A question and answer application built with Django, designed to facilitate comm
 2. **Create and activate a virtual environment:**
 
    ```bash
-   python -m venv .venv
+   python3 -m venv .venv
    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
    ```
 
@@ -35,13 +35,13 @@ A question and answer application built with Django, designed to facilitate comm
 4. **Apply migrations:**
 
    ```bash
-   python manage.py migrate
+   python3 manage.py migrate
    ```
 
 5. **Create a superuser (optional):**
 
    ```bash
-   python manage.py createsuperuser
+   python3 manage.py createsuperuser
    ```
 
 6. **Run the development server:**
