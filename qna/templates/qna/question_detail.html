@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{{ question.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ question.title }}</h1>
+  <p><strong>Submitted on:</strong> {{ question.pub_date|date:"F j, Y, g:i a" }}</p>
+  
+  <div>
+    <h3>Question</h3>
+    <p>{{ question.question }}</p>
+  </div>
+
+  <div>
+    <h3>Answer</h3>
+    <p>{{ question.answer }}</p>
+  </div>
+  
+  <div>
+    <p><strong>Public:</strong> {{ question.public|yesno:"Yes,No" }}</p>
+    <p><strong>Comments Allowed:</strong> {{ question.allow_comments|yesno:"Yes,No" }}</p>
+  </div>
+
+  <!-- Edit button -->
+  <a href="{% url 'question_edit' slug=question.slug %}" class="btn btn-primary">Edit Question</a>
+
+  <!-- Back to list button -->
+  <a href="{% url 'question_list' %}" class="btn btn-secondary">Back to Questions</a>
+{% endblock %}

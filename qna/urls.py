@@ -1,8 +1,9 @@
-from django.conf.urls.defaults import *
+from django.urls import path
+from . import views
 
-urlpatterns = patterns('qna.views',
-    url(r'^ask/$', 'question_create', name='question_create'),    
-    url(r'^(?P<slug>[-\w]+)/admin/$', 'question_admin', name='question_admin'),
-    url(r'^(?P<slug>[-\w]+)/$', 'question_detail', name='question_detail'),
-    url(r'^$', 'question_list', name='question_list'),    
-)
+urlpatterns = [
+    path('', views.QuestionListView.as_view(), name='question_list'),
+    path('create/', views.QuestionCreateView.as_view(), name='question_create'),  # Ensure this is present
+    path('<slug:slug>/', views.QuestionDetailView.as_view(), name='question_detail'),
+    path('<slug:slug>/edit/', views.QuestionEditView.as_view(), name='question_edit'),
+]

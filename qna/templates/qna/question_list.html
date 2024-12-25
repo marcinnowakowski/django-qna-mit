@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Questions</h1>
+  
+  <!-- Link to create a new question -->
+  <a href="{% url 'question_create' %}" class="btn btn-primary">Create New Question</a>
+
+  <!-- Display the list of questions -->
+  <ul>
+    {% for question in questions %}
+      <li>
+        <a href="{% url 'question_detail' slug=question.slug %}">
+          {{ question.title }}
+        </a>
+        <p>{{ question.pub_date|date:"F j, Y" }}</p>
+        <p>{{ question.question|truncatewords:20 }}</p>
+      </li>
+    {% empty %}
+      <li>No questions available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
