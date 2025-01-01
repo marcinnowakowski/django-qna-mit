@@ -13,9 +13,8 @@ class Survey(models.Model):
 
 class Question(models.Model):
   title = models.CharField(max_length=255)
-  survey = models.ForeignKey(Survey, on_delete=models.DO_NOTHING)
+  survey = models.ForeignKey(Survey, on_delete=models.DO_NOTHING, related_name='questions')
   pub_date = models.DateTimeField('Date submitted',auto_now_add=True)
-  slug = models.SlugField(unique=True)
   question_text = models.TextField()
   public = models.BooleanField(default=False)
 
@@ -38,7 +37,7 @@ class SurveySubmission(models.Model):
     return str(self.submitted_at) + ":" + str(self.patient) + ":" + str(self.survey)
 
 class Answer(models.Model):
-  survey_submission = models.ForeignKey(SurveySubmission, on_delete=models.CASCADE, related_name='answers')
+  survey_submission = models.ForeignKey(SurveySubmission, on_delete=models.CASCADE)
   question = models.ForeignKey(Question, on_delete=models.DO_NOTHING)
   answer_text = models.TextField()
 
