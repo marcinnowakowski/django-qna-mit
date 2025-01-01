@@ -18,7 +18,7 @@
 
   <!-- Display Survey Details -->
   <section>
-      <h2>Survey Selected</h2>
+      <h2>Survey Completed</h2>
       {% if survey_selected_model %}
           <p><strong>Survey Name:</strong> {{ survey_selected_model.title }}</p>
           <p><strong>Survey Description:</strong> {{ survey_selected_model.description }}</p>
@@ -27,14 +27,4 @@
       {% endif %}
   </section>
   
-  <!-- Survey Form -->
-  <section>
-    <h2>Questions</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit Survey</button>
-    </form>
-  </section>
-
 {% endblock %}

@@ -9,7 +9,6 @@ class SurveyAdmin(admin.ModelAdmin):
 admin.site.register(Survey, SurveyAdmin)
 
 class QuestionAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("title",)}
     class Media:
         js = ('/media/fckeditor/fckeditor.js','/media/fckeditor/fckareas.js')
 
